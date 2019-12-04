@@ -1,0 +1,41 @@
+<body class="body2BG">
+    <div class="roomList">
+        <h1>Room Listings</h1>
+
+
+
+        <a href="" data-toggle="modal" data-target="#addRoom">Add Room</a>
+
+        <div class="modal" id="addRoom" role="dialog">
+            <form method="POST" action="/task/uploadRoom" class="homeForm" enctype="multipart/form-data">
+                <h3 class="formTitle">Sign up today</h3>
+                <label>Room Name</label><br>
+                <input class="inputBox" type="text" name="roomName" placeholder="Room">
+                <label>Description</label><br>
+                <input class="inputBox" type="text" name="description" placeholder="Desc">
+                <label>Price</label><br>
+                <input class="inputBox" type="text" name="roomPrice" placeholder="$0">
+                <input name="foo" type="file">
+                <input type="submit" value="Submit Room">
+                
+
+            </form>
+        </div>
+
+
+
+        <div class="roomGrid">
+            {{#each rooms}}
+            <div class="box">
+                <img width="100%" height="70%" src={{this.path}}>
+                {{this.name}}<br>
+                {{this.description}}<br>
+                {{this.price}}<br>
+                <img class="star" src="images/star.webp" width="15" height="15"><br><br><br>
+            </div>
+            {{/each}} 
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>

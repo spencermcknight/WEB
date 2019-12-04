@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <title>Example App</title>
+</head>
+
+<header>
+    <img id="logo" src="images/airbnb.png">
+    
+    
+    <nav id="navBar">
+        <p class="user">Logged in as:  {{user.email}}</p>
+        <a class="links" href="/">Home</a>
+        <a class="links" href="/gen/roomListings">Room Listings</a>
+        <a id="regBut" class="links" href="" data-toggle="modal" data-target="#popUp">Registration</a>
+        <a class="links" href="" data-toggle="modal" data-target="#popUpLog">Log In</a>
+    </nav>
+</header>
+<body>
+    
+    <div class="modal" id="popUp" role="dialog">
+        <form method="POST" action="/user/register-user" class="homeForm">
+            <h3 class="formTitle">Sign up today</h3>
+            <label>FIRST NAME</label><br>
+            <input class="inputBox" type="text" name="firstName" placeholder="First Name">
+            <label>LAST NAME</label><br>
+            <input class="inputBox" type="text" name="lastName" placeholder="Last Name">
+            <label>DATE OF BIRTH</label><br>
+            <input class="inputBox" type="date" name="dob">
+            <label>EMAIL</label><br>
+            <input class="inputBox" type="text" name="email" placeholder="example@email.com">
+            <label>PASSWORD</label><br>
+            <input class="inputBox" type="password" name="password">
+            <input type="submit" value="Sign Up">
+            
+
+        </form>
+    </div>
+
+
+     <div class="modal" id="popUpLog" tabindex="-1" role="dialog">
+        <form action="/user/login-user" class="homeForm" method="POST">
+            <label>EMAIL</label><br>
+            <input class="inputBox" type="text" name="email" placeholder="example@email.com">
+            <label>PASSWORD</label><br>
+            <input class="inputBox" type="text" name="password" placeholder="password">
+            <input type="submit" value="Log In" name="loginBut">
+
+        </form>
+    </div>
+    {{{body}}}
+ 
+</body>
+<footer class="container-fluid">
+    <div id="social">
+        <a href="https://www.facebook.com/airbnb/"><img class="smallImg" src="images/facebook.png"></a>
+        <a href="https://www.twitter.com/airbnb/"><img class="smallImg" src="images/twitter.png"></a>
+        <a href="https://www.instagram.com/airbnb/"><img class="smallImg" src="images/instagram.png"></a>
+    </div>
+    <div id="legal">A‌i‌r‌b‌n‌b‌,‌ ‌I‌n‌c‌.‌ is an online marketplace for arranging or offering lodging, primarily homestays, or tourism experiences.
+    Airbnb does not own any of the real estate listings, nor does it host events; it acts as a broker, receiving commissions
+    from each booking. Airbnb is based in San Francisco, California, United States.</div>
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</footer>
+</html>

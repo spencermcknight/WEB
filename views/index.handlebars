@@ -1,0 +1,48 @@
+<body class="body1BG">
+    
+            {{#each index}}
+
+            <div class="errors">{{this}}</div>
+            {{/each}} 
+        <form method="POST" action="/gen/search" class="homeForm">
+            <h3 class="formTitle">Book unique places to stay and things to do.</h3>
+            <label>Where</label><br>
+            <input class="inputBox" type="text" placeholder="Anywhere">
+            <label>Check-in</label><br>
+            <input class="inputBox" type="text" placeholder="dd-mm-yyyy">
+            <label>Checkout</label><br>
+            <input class="inputBox" type="text" placeholder="dd-mm-yyyy">
+            <label>Guests</label><br>
+            <select class="inputBox">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+            </select>
+            <input type="submit" value="Search">
+
+        </form>
+    <div class="bottomP">
+        <nav class="mobPad">
+            <div class="explore"> <img class="exploreImg" src="images/room.jpg"> <p class="exploreText">Stays</p> </div>
+            <div class="explore"> <img class="exploreImg" src="images/experiences.png"><p class="exploreText">Experiences</p>  </div>
+            <div class="explore"> <img class="exploreImg" src="images/adventure.webp"><p class="exploreText">Adventures</p>  </div>
+            <div class="explore"> <img class="exploreImg" src="images/food.jpg"><p class="exploreText">Restaurants</p>  </div>
+        </nav>
+        <div id="videoArea">
+            
+            <video id="vidP" width="600" height="338" autoplay controls muted loop>
+                <source src="images/airbnbAd.mp4" type="video/mp4">
+            </video>
+            <div id="para">
+                <p>Find hosts with extra rooms, entire homes, and unique accommodations like castles and igloos.
+                <br><br><br>
+                Connect with hosts, confirm travel dates, and pay—all through Airbnb’s trusted services.
+                <br><br><br>
+                Feel at home, anywhere you go in the world. Learn more about how to travel on Airbnb. 
+                </p>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</body>
