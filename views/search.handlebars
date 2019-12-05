@@ -1,5 +1,14 @@
 <body>
 <h1>Room Search Results</h1>
-
+{{#each search}}
+    <div class="box">
+        <img width="100%" height="70%" src={{this.path}}>
+        {{this.name}}<br>
+        {{this.location}}
+        {{this.description}}<br>
+        {{this.price}}<br>
+        <img class="star" src="images/star.webp" width="15" height="15"><br><br><br>
+    </div>
+{{/each}}
 
 </body>

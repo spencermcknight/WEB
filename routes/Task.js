@@ -13,6 +13,7 @@ router.post('/uploadRoom', (req,res) => {
 
         const newRoom = {
             path : ("images/" + req.files.foo.name),
+            location : req.body.location,
             description : req.body.description,
             name : req.body.roomName,
             price : req.body.roomPrice

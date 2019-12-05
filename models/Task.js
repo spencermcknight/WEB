@@ -6,6 +6,10 @@ const taskSchema = new Schema({
     {
         type:String,
     },
+    location:  
+    {
+        type:String,
+    },
     description:  
     {
         type:String,

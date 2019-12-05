@@ -1,14 +1,17 @@
 const hasAccess = (req,res,next)=>
 {
+    let errors = [];
     console.log(res.locals.user);
+    errors.push("Must be logged in to access page");
     if(res.locals.user == null)
     {
-        console.log('nope, not logged in');
-        res.redirect("/");
+        res.render("index",
+        {
+            index:errors
+        })
     }
     else
     {
-        console.log('room listings should render');
         next();
     }
 }

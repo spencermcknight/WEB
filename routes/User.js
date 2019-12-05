@@ -31,6 +31,15 @@ router.post('/login-user', (req,res) => {
                 } 
               });
         })
+        .catch(err=>
+            {
+                let error = [];
+                error.push("Incorrect Username or Password");
+                res.render("index",
+                {
+                    index:error
+                })
+            })
         
 });
 
@@ -97,7 +106,8 @@ router.post('/register-user', (req,res) => {
                     lastName : req.body.lastName ,
                     email : req.body.email,
                     password : hash,
-                    dob: req.body.dob
+                    dob: req.body.dob,
+                    type : req.body.userType
                 }
                 const user = new User(newUser);
                 user.save();

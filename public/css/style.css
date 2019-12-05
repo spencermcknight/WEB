@@ -13,10 +13,21 @@ header
     background-repeat: no-repeat;
     background-size: 100% 50%;
 }
+.addR
+{
+    font-size: 24px;
+    font-weight: bold;
+    color:red;
+}
+.bookedRoomsArea
+{
+    display:inline-block;
+    background-color:green;
+}
 .body2BG
 {
     background-image: url("../images/roomBG.jpg");
-    
+    margin-left:8%;
     background-repeat: no-repeat;
     background-size: 100% 50%;
 }
@@ -71,6 +82,7 @@ body
 }
 #logo
 {
+    display:inline-block;
     text-align: left;
     width:50px;
     height:50px;
@@ -87,6 +99,7 @@ body
     text-decoration: none;
     margin:10px;
     padding-bottom:8px;
+    text-align:right;
 }
 .links
 {
@@ -182,10 +195,12 @@ body
     text-align: center;
     display:grid;
     grid-template-columns: 21rem 21rem 21rem;
-    grid-gap: 15px;
+    grid-gap: 35px;
 }
 .roomList
 {
+    font-weight: bold;
+    margin-left:0;
     display:inline-block;
     padding-top:50px;
     padding-left:25px;
@@ -199,8 +214,22 @@ body
     box-shadow: 7px 10px rgba(190, 189, 189, 0.3);
     text-align: left;
     font-size: 20px;
+    border: 1px solid grey;
 }
-
+.innerBox
+{
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+    bottom:0;
+    font-weight: bold;
+    display:grid;
+    grid-template-columns: auto auto;
+}
+.desc
+{
+    font-weight: normal;
+}
 
 footer
 {

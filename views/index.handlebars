@@ -4,14 +4,16 @@
 
             <div class="errors">{{this}}</div>
             {{/each}} 
-        <form method="POST" action="/gen/search" class="homeForm">
+        <form method="POST" action="/gen/roomSearch" class="homeForm">
             <h3 class="formTitle">Book unique places to stay and things to do.</h3>
             <label>Where</label><br>
-            <input class="inputBox" type="text" placeholder="Anywhere">
+            <select name="where" class="inputBox">
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="Other">Other</option>
+            </select>
             <label>Check-in</label><br>
-            <input class="inputBox" type="text" placeholder="dd-mm-yyyy">
-            <label>Checkout</label><br>
-            <input class="inputBox" type="text" placeholder="dd-mm-yyyy">
+            <input class="inputBox" type="date" name="checkIn" placeholder="dd-mm-yyyy">
             <label>Guests</label><br>
             <select class="inputBox">
                 <option value="1">1</option>
@@ -22,6 +24,9 @@
             <input type="submit" value="Search">
 
         </form>
+        <div class="bookedRooms">
+            <p>hullo</p>
+        </div>
     <div class="bottomP">
         <nav class="mobPad">
             <div class="explore"> <img class="exploreImg" src="images/room.jpg"> <p class="exploreText">Stays</p> </div>
