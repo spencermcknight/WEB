@@ -1,16 +1,15 @@
 const express = require('express')
 const router = express.Router();
 const Task = require("../models/Task");
-const hasAccess = require("../middleware/auth")
+const hasAccess = require("../middleware/auth");
+const ObjectId = require('mongodb').ObjectID;
 
 router.use(express.static('public'));
 
-router.get('/roomListings',hasAccess, (req, res)=> {
+router.get('/roomListings', (req, res)=> {
     Task.find({})
         .then(result=>{
-            let admintype = [];
-            console.log(`user type is: ${res.locals.user.type}`);
-            if(res.locals.user.type != "admin")
+            if(res.locals.user.admin != true)
             {
                 res.render('roomListings',
                 {
@@ -19,18 +18,16 @@ router.get('/roomListings',hasAccess, (req, res)=> {
             }
             else
             {
-                admintype.push("1");
                 res.render('roomListings',
                 {
-                rooms:result,
-                adm:admintype
+                rooms:result
                 })
             }
             
         })
 });
 
-router.post('/roomSearch',hasAccess, (req, res)=> {
+router.post('/roomSearch', (req, res)=> {
     Task.find({location: req.body.where})
         .then(result=>{
             searched = [];
@@ -42,6 +39,27 @@ router.post('/roomSearch',hasAccess, (req, res)=> {
                 sear:searched
             })
         })
+});
+
+router.get('/dashboard',hasAccess, (req, res)=> {
+    let IDvar = res.locals.user.bookedRoom;
+    let o_id = new ObjectId(IDvar);
+    Task.findOne({_id:o_id})
+        .then(result=>{
+            console.log(`booked Room: ${result}`);
+            res.render("dashboard",
+            {
+                rooms:result
+            })
+        })
+        .catch(none=>{
+            res.render("dashboard");
+        })
+});
+
+router.get('/logOut',hasAccess, (req, res)=> {
+    req.session.destroy();
+    res.redirect("/");
 });
 
 router.post('/search', (req, res)=> {

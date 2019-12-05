@@ -1,0 +1,39 @@
+<body class="dashBG">
+    <div class="innerDash">
+        <h1>{{user.firstName}}'s Dashboard</h1><div></div>
+        <div class="boxDes">
+            <br><br>
+            <h3>User Information</h3>
+            <p>First Name: {{user.firstName}}</p>
+            <p>Last Name: {{user.lastName}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Date of Birth: {{user.dob}}</p>
+            {{#if user.admin}}
+            <p>User Type: Admin</p>
+            {{/if}}
+            {{#unless user.admin}}
+            <p>User Type: User</p>
+            {{/unless}}
+        </div>
+        <div class="boxDes">
+            <br><br>
+            <h3>Currently Booked Room</h3>
+            {{#if rooms}}
+                <img width="400px" height="300px" src={{rooms.path}}>
+                <div>{{rooms.name}}</div>
+                <div>{{rooms.location}}</div>
+                <div class="desc">{{this.description}}</div>
+                <div></div>
+                <div>{{rooms.price}}</div>
+                <div>
+                    <img class="star" src="images/star.webp" width="15" height="15">
+                    <img class="star" src="images/star.webp" width="15" height="15">
+                    <img class="star" src="images/star.webp" width="15" height="15">
+                    <img class="star" src="images/star.webp" width="15" height="15">
+                    <img class="star" src="images/star.webp" width="15" height="15">
+                </div>
+            {{/if}}
+        </div>
+
+    </div>
+</body>

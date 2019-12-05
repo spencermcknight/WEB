@@ -9,13 +9,23 @@
 
 <header>
     <img id="logo" src="images/airbnb.png">
-    <p class="user">Logged in as:  {{user.email}}</p>
+    {{#if user}}
+        <p class="user">Logged in as:  {{user.email}}</p>
+    {{/if}}
     
     <nav id="navBar">
         <a class="links" href="/">Home</a>
         <a class="links" href="/gen/roomListings">Room Listings</a>
         <a id="regBut" class="links" href="" data-toggle="modal" data-target="#popUp">Registration</a>
-        <a class="links" href="" data-toggle="modal" data-target="#popUpLog">Log In</a>
+        {{#if user}}
+            <a class="links" href="/gen/dashboard">Dashboard</a>
+        {{/if}}
+        {{#if user}}
+            <a class="links" href="/gen/logOut">Log Out</a>
+        {{/if}}
+        {{#unless user}}
+            <a class="links" href="" data-toggle="modal" data-target="#popUpLog">Log In</a>
+        {{/unless}}
     </nav>
 </header>
 <body>
@@ -32,7 +42,7 @@
             <label>EMAIL</label><br>
             <input class="inputBox" type="text" name="email" placeholder="example@email.com">
             <label>PASSWORD</label><br>
-            <input class="inputBox" type="text" name="password" placeholder="Password">
+            <input class="inputBox" type="password" name="password" placeholder="Password">
             <label>USER TYPE</label>
             <input type="radio" name="userType" value="user">User</select>
             <input type="radio" name="userType" value="admin">Admin</select><br>

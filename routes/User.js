@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require('bcryptjs');
+const Task = require("../models/Task");
+const ObjectId = require('mongodb').ObjectID;
 
 router.use(express.static('public'));
 
@@ -10,6 +12,10 @@ router.get('/registration', (req, res)=> {
     res.render('registration');
 });
 
+router.post('/bookRoom/:id', (req,res) => {
+    res.locals.user.bookedRoom = req.params.id;
+    res.redirect("../../gen/roomListings");
+});
 
 router.post('/login-user', (req,res) => {
     User.findOne({email: req.body.email})
@@ -101,16 +107,32 @@ router.post('/register-user', (req,res) => {
         }
         else{
             bcrypt.hash(req.body.password, 10, function(err, hash) {
-                const newUser = {
-                    firstName : req.body.firstName,
-                    lastName : req.body.lastName ,
-                    email : req.body.email,
-                    password : hash,
-                    dob: req.body.dob,
-                    type : req.body.userType
+                if(req.body.userType == "admin")
+                {
+                    const newUser = {
+                        firstName : req.body.firstName,
+                        lastName : req.body.lastName ,
+                        email : req.body.email,
+                        password : hash,
+                        dob: req.body.dob,
+                        admin : true
+                    }
+                    const user = new User(newUser);
+                    user.save();
                 }
-                const user = new User(newUser);
-                user.save();
+                else
+                {
+                    const newUser = {
+                        firstName : req.body.firstName,
+                        lastName : req.body.lastName ,
+                        email : req.body.email,
+                        password : hash,
+                        dob: req.body.dob,
+                        admin : false
+                    }
+                    const user = new User(newUser);
+                    user.save();
+                }
               });
             
             res.render("index");

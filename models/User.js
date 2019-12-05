@@ -22,10 +22,15 @@ const userSchema = new Schema({
   {
       type:Date,
   },
-  type:  
+  admin:  
+  {
+      type:Boolean,
+      default: false
+  },
+  bookedRoom:
   {
       type:String,
-      default:"user"
+      default:"5de7889b8047722964256f9d"
   }
 });
 
