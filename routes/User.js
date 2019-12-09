@@ -29,7 +29,7 @@ router.post('/login-user', (req,res) => {
                     console.log(result);
                     console.log(result.password);
                     console.log(`successful log in user : ${result.firstName}` );
-                    res.redirect("/");
+                    res.redirect("../../gen/dashboard");
                 } else 
                 {
                     console.log("unsuccessful log in");

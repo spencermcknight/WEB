@@ -19,7 +19,7 @@ router.post('/editRoom/:id', (req,res) => {
             result.save();
         })
         .catch(err=> console.log(`error editing room: ${err}`));
-        res.render('/gen/roomListings');
+        res.redirect('../../gen/roomListings');
 });
 
 
@@ -40,7 +40,7 @@ router.post('/uploadRoom', (req,res) => {
         room.save();
 
     }
-    res.render('index');
+    res.redirect('../../gen/roomListings');
 })
 
 module.exports=router;
